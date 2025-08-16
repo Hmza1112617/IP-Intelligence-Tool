@@ -17,18 +17,35 @@ A powerful, console-based IP intelligence tool written in Python. This script ga
 -   **Robust Input Handling:** Sanitizes input to prevent errors from hidden or invalid characters.
 -   **Flexible Usage:** Can be run interactively or by passing an IP address as a command-line argument.
 
-## Usage
+## Getting Started
 
-1.  Clone the repository.
-2.  Run the script from your terminal:
+Follow these steps to get the tool running on your system.
 
-    ```bash
-    # For interactive mode
-    python ip_info.py
+**1. Clone the Repository**
 
-    # To analyze an IP directly
-    python ip_info.py 8.8.8.8
-    ```
+Open your terminal and run the following command to download the tool:
+
+```bash
+git clone https://github.com/Hmza1112617/IP-Intelligence-Tool.git
+```
+
+**2. Navigate to the Directory**
+
+```bash
+cd IP-Intelligence-Tool
+```
+
+**3. Run the Tool**
+
+The script will automatically install any missing libraries on its first run.
+
+```bash
+# For interactive mode
+python ip_info.py
+
+# To analyze an IP directly
+python ip_info.py 8.8.8.8
+```
 
 ---
 
@@ -45,18 +62,35 @@ A powerful, console-based IP intelligence tool written in Python. This script ga
 -   **معالجة قوية للمدخلات:** تقوم بتنظيف المدخلات لمنع الأخطاء الناتجة عن المحارف الخفية.
 -   **استخدام مرن:** يمكن تشغيلها بشكل تفاعلي أو عبر تمرير الـ IP كمدخل لسطر الأوامر.
 
-## طريقة الاستخدام
+## البدء السريع
 
-1.  قم بنسخ المستودع.
-2.  شغل السكريبت من خلال الـ terminal:
+اتبع هذه الخطوات لتشغيل الأداة على نظامك.
 
-    ```bash
-    # للوضع التفاعلي
-    python ip_info.py
+**١. نسخ المستودع**
 
-    # لتحليل IP مباشرة
-    python ip_info.py 8.8.8.8
-    ```
+افتح الـ terminal ونفذ الأمر التالي لتحميل الأداة:
+
+```bash
+git clone https://github.com/Hmza1112617/IP-Intelligence-Tool.git
+```
+
+**٢. الدخول إلى المجلد**
+
+```bash
+cd IP-Intelligence-Tool
+```
+
+**٣. تشغيل الأداة**
+
+سيقوم السكريبت بتثبيت أي مكتبات ناقصة تلقائياً عند أول تشغيل.
+
+```bash
+# للوضع التفاعلي
+python ip_info.py
+
+# لتحليل IP مباشرة
+python ip_info.py 8.8.8.8
+```
 
 ---
 ## Credits
