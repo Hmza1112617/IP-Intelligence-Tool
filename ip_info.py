@@ -51,7 +51,7 @@ def check_for_updates():
         response = requests.get(REPO_URL, timeout=5)
         response.raise_for_status()
         remote_code = response.text
-        match = re.search(r'CURRENT_VERSION\s*=\s*"(v[^"]+)'', remote_code)
+        match = re.search(r'CURRENT_VERSION\s*=\s*"(v[^"]+)"', remote_code)
         if not match:
             return
 
