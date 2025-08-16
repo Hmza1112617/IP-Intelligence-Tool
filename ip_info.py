@@ -1,6 +1,6 @@
 
 # ======================================================================================
-#  Advanced IP Intelligence Tool - v5.1 (Stable)
+#  Advanced IP Intelligence Tool - v5.2 (Stable)
 #  Author: Python & Networking Expert
 #  Description: A comprehensive tool to gather and report IP data, with self-updating.
 # ======================================================================================
@@ -13,7 +13,7 @@ import re
 from datetime import datetime
 
 # --- Version & Update Configuration ---
-CURRENT_VERSION = "v5.1"
+CURRENT_VERSION = "v5.2"
 REPO_URL = "https://raw.githubusercontent.com/Hmza1112617/IP-Intelligence-Tool/main/ip_info.py"
 
 # --- Dependency Check & Auto-Installation ---
@@ -165,9 +165,17 @@ def send_telegram_report(ip_str, all_data):
 def main():
     check_for_updates()
     console.print(Panel(f"Ultimate IP Intelligence Tool - {CURRENT_VERSION}", style="bold magenta"))
-    ip_to_check = sys.argv[1] if len(sys.argv) > 1 else console.input(Text("\nEnter IP Address to analyze: ", style="bold yellow"))
+    
+    ip_to_check = ""
+    is_interactive = len(sys.argv) < 2
+    if is_interactive:
+        ip_to_check = console.input(Text("\nEnter IP Address to analyze: ", style="bold yellow"))
+    else:
+        ip_to_check = sys.argv[1]
+
     sanitized_ip = re.sub(r'[^0-9a-fA-F.:/]', '', ip_to_check).strip()
-    if not sanitized_ip: return console.print("[bold red]Invalid input. Exiting.[/bold red]")
+    if not sanitized_ip:
+        return console.print("[bold red]Invalid input. Exiting.[/bold red]")
 
     try:
         ip_obj = ipaddress.ip_address(sanitized_ip)
@@ -179,11 +187,10 @@ def main():
         return
 
     output_mode = 'console'
-    if TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID:
-        if len(sys.argv) < 2:
-            choice = console.input("\n[bold yellow]How to deliver the report?\n[1] Display on screen\n[2] Send to Telegram\nEnter choice (1 or 2): [/bold yellow]").strip()
-            if choice == '2':
-                output_mode = 'telegram'
+    if is_interactive and TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID:
+        choice = console.input("\n[bold yellow]How to deliver the report?\n[1] Display on screen\n[2] Send to Telegram\nEnter choice (1 or 2): [/bold yellow]").strip()
+        if choice == '2':
+            output_mode = 'telegram'
 
     API_SOURCES = {
         "Geolocation (ip-api.com)": f"http://ip-api.com/json/{sanitized_ip}?fields=61439",
